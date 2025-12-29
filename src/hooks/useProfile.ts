@@ -27,7 +27,7 @@ export function useProfile(user?: User) {
   }, [user]);
 
   const updateProfile = trpc.user.updateProfile.useMutation({
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       utils.user.me.setData(undefined, data);
       setAvatarFile(null);
     },

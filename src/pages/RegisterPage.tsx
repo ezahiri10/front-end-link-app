@@ -13,7 +13,7 @@ export default function RegisterPage() {
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const register = trpc.auth.register.useMutation({
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       localStorage.setItem("sessionId", data.sessionId);
       navigate({ to: "/dashboard/links" });
     },

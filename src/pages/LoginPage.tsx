@@ -11,11 +11,11 @@ export default function LoginPage() {
   const [passwordError, setPasswordError] = useState("");
 
   const login = trpc.auth.login.useMutation({
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       localStorage.setItem("sessionId", data.sessionId);
       navigate({ to: "/dashboard/links" });
     },
-    onError: (error: any) => {
+    onError: () => {
       setEmailError("Invalid credentials");
       setPasswordError("Invalid credentials");
     },
